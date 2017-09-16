@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Moving to the next NethServer UI</title>
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/black.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+    <section id="begin"><i class="fa fa-plane" aria-hidden="true"></i>
+        <p><b>Moving to the next NethServer UI</b></p>
+        <p>DRAFT</p>
+        <p><small><a href="https://twitter.com/davideprincipi" property="cc:attributionName" rel="cc:attributionURL">@davideprincipi</a> - #nscon17</small></p>
+    </section>
+
+    <section id="slide-03">
+        <p>Current UI &ndash; <b>Server Manager</b></p>
+        <ul>
+            <li class="fragment">https://localhost:980</li>
+            <li class="fragment">configures the system</li>
+            <li class="fragment">installs and configures additional modules</li>
+        </ul>
+    </section>
+
+    <section id="slide-01"><p>Time to move on: motivations</p></section>
+
+    <section id="slide-02">
+        <p>Case study / spring 2017</p>
+        <p>Account provider wizard</p>
+    </section>
+
+    <section>
+        <p><i>Developer's POV</i></p>
+        <p>Cope with a complex implementation</p>
+        <ul>
+            <li class="fragment">Linux container</li>
+            <li class="fragment">Special software installation procedure</li>
+            <li class="fragment">Additional IP and bridge interface required</li>
+        </ul>
+    </section>
+
+    <section>
+        <p>User/Sysadmin's POV</p>
+        <p>Lack of information to make the right choice</p>
+        <ul>
+            <li class="fragment">Why a container?</li>
+            <li class="fragment">What package to install?</li>
+            <li class="fragment">What IP? Why a bridge?</li>
+        </ul>
+    </section>
+
+    <section>
+        <p>Solution</p>
+        <p>Wizard: a guided configuration procedure</p>
+        <p class="fragment"><i>Tell me what you want, I'll do it for you!</i></p>
+    </section>
+
+    <section id="slide-04">
+        <p>Server Manager roots</p>
+        <p><a class="" href="https://github.com/NethServer/nethgui"><b>Nethgui</b> framework</a> (2011)</p>
+    </section>
+
+    <section id="slide-05"><p>Nethgui</p>
+        <ul>
+            <li class="fragment">Simplify the development of NS modules</li>
+            <li class="fragment">Produce a consistent look &amp; feel</li>
+            <li class="fragment">Be compatible with text-only browsers <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></li>
+        </ul>
+    </section>
+
+    <section><p>Nethgui: features etc.</p>
+        <ul>
+            <li class="fragment">Server-side PHP programming <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></li>
+            <li class="fragment">User authentication &amp; authorization (<code>sudo</code>)</li>
+            <li class="fragment">User input validation</li>
+            <li class="fragment">Low-level API wrappers (<code>db</code>/<code>config</code>, <code>signal-event</code>, <code>validate</code>)</li>
+            <li class="fragment">Background task progress tracking</li>
+            <li class="fragment">Accessibility</li>
+        </ul>
+    </section>
+
+    <section>
+        <p><i>Developer's POV</i></p>
+        <p>What's wrong with Nethgui</p>
+        <ul>
+            <li class="fragment">Lack of documentation</li>
+            <li class="fragment">Do-it-yourself PHP framework</li>
+            <li class="fragment">Cannot decouple UI behavior and system programming</li>
+            <li class="fragment">Hard to implement a non-basic use case (e.g. <u>Account provider wizard</u>)</li>
+        </ul>
+    </section>
+
+    <section>Next moves<br>TBD</section>
+
+    <section>
+        <i class="fa fa-plane" aria-hidden="true"></i><br>
+        <strong property="dct:title">Moving to the next NethServer UI</strong><br>
+        <small><a href="https://twitter.com/davideprincipi" property="cc:attributionName" rel="cc:attributionURL">@davideprincipi</a> - #nscon17</small>
+        <div style="position: fixed; display: block; bottom: 0em; left: 25%; margin: 0; padding: 0; font-size: 30%">
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by-sa-88x31.png" /></a>
+        </div>
+    </section>
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'fast', // default/fast/slow
+        
+        backgroundImage: "img/draft.png",
+
+        dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
